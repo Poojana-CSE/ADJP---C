@@ -1,0 +1,224 @@
+Storage Class
+============
+Storage Classes are used to describe about the features of a variable/function. These features basically include the scope, visibility and life-time which help us to trace the existence of a particular variable during the runtime of a program.
+
+The following storage classes are most oftenly used in C programming,
+    1. Automatic variables
+    2. External variables
+    3. Static variables
+    4. Register variables
+
+1.Automatic variable
+====================
+A variable declared inside a function without any storage class specification, is by default an automatic variable. 
+
+They are created when a function is called and are destroyed automatically when the function's execution is completed. Automatic variables can also be called local variables because they are local to a function. By default they are assigned garbage value by the compiler.
+
+The garbage value will taken as a default value until we assgin.
+
+Example1
+-------------
+#include<stdio.h>
+void Display(int);
+main()
+{
+int n;
+  printf("\nEnter the Value for n");
+  scanf("%d",&n);
+  printf("\n The  value of n Before function call : %d",n);
+  Display(n);
+  printf("\n The  value of n After function call: %d",n);
+}
+void Display(int n)
+ {
+   n+=18;
+   printf("\n The Value of N in function : %d",n);
+ }
+
+
+2. Global variable:
+=======================
+Example
+#include<stdio.h>
+int n;
+void Display();
+main()
+{
+  printf("\nEnter the Value for n");
+  scanf("%d",&n);
+  printf("\n The  value of n Before function call : %d",n);
+  Display();
+  printf("\n The  value of n After function call: %d",n);
+}
+void Display()
+ {
+   n+=18;
+   printf("\n The Value of N in function : %d",n);
+ }
+
+External  Variable
+==============
+The external / Global variable is a variable which is declared before main function and not a member of any function can access all the functions in the program.
+Can be used other programs when we include a program to an another program.
+
+Example1:
+-------------
+Main Program
+--------------------
+#include<stdio.h>
+#include "EXTERN.C"
+extern int n;
+extern void Display();
+main()
+{
+   printf("\n The value of External variable n is %d",n);
+   Display();
+}
+
+Program to Import(EXTERN.C)
+-------------------------
+#include<stdio.h>
+int n=100;
+void Display()
+ {
+     printf("\n Welcome to External function. The Value of n is : %d",n);
+ }
+
+3. Register Variable
+=====================
+The register storage class is used to define local variables that should be stored in a register instead of RAM. This means that the variable has a maximum size equal to the register size.
+The register should only be used for variables that require quick access such as counters. It should also be noted that defining 'register' does not mean that the variable will be stored in a register. It means that it MIGHT be stored in a register depending on hardware and implementation restrictions.
+
+Example:
+-------------
+#include<stdio.h>
+main()
+{
+  int m=100;
+  register int r=10;
+
+  printf("\nThe Value of Normal Variable m is %d",m);
+  printf("\nThe Value of Register Variable r is %d",&r);
+
+  printf("\nThe Address of Normal Variable m is %u",&m);
+  printf("\nThe Address of Register Variable r is %u",&r);
+
+}
+
+4.Static Variable
+=============
+The static storage class instructs the compiler to keep a local variable in existence during the life-time of the program instead of creating and destroying it each time it comes into and goes out of scope. Therefore, making local variables static allows them to maintain their values between function calls.
+
+The static modifier may also be applied to global variables. When this is done, it causes that variable's scope to be restricted to the file in which it is declared.
+
+In C programming, when static is used on a global variable, it causes only one copy of that member to be shared by all the objects of its class.
+
+Example
+-------------
+#include<stdio.h>
+void Display();
+main()
+{
+  Display();
+  Display();
+  Display();
+  Display();
+}
+void Display()
+ {
+   int n=0;
+   n+=10;
+   printf("\n The Value of N in function : %d",n);
+}
+Example2:
+--------------
+#include<stdio.h>
+void Fact(int);
+main()
+{
+  int n;
+  printf("\nEnter the Number to Find Factorial :");
+  scanf("%d",&n);
+  Fact(n);
+  
+}
+void Fact(int m)
+ {
+   static int f=1;
+   if (m>1)
+      {
+        f=f*m;
+        Fact(--m);
+      }
+    else
+      {
+         printf("\nThe Factorial value is : %d",f);
+      }
+}
+Preprocessor Ditespace is also allowed before and after the #.
+
+The common preprocessor directives used in c Programming
+-----------------------------------------------------------------------------
+#include
+#define
+#ifdef
+#ifndef
+#if
+#else
+#elif
+#endif
+#undef
+Example1
+--------------
+#include <stdio.h>
+#define abc int
+#define p printf
+
+int main()
+{
+    abc a;
+	a=100;
+	p("\nThe value of a is : %d",a);
+}
+
+Example2
+--------------
+#include <stdio.h>
+#define PI 3.1415
+#define Area(r) (PI*r*r)
+
+int main()
+{
+    int r;
+    float ar;
+    printf("Please Enter the radius: ");
+    scanf("%d", &r);
+    ar =Area(r);
+    printf("The Area Of Circle is : %.2f", ar);
+}
+Example3
+-------------
+#include <stdio.h>
+#define msg "Welcome to CSC Perundurai"
+
+int main()
+{
+	printf("%s",msg);
+}
+
+Example4
+-------------
+#include <stdio.h>
+#define msg "Welcome to CSC Perundurai"
+
+main()
+{
+	#undef msg
+	#ifdef msg
+		printf("%s",msg);
+	
+	#else
+		#define msg "CSC Perundurai"
+		printf("%s",msg);
+	#endif
+}

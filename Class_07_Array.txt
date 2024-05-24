@@ -1,0 +1,179 @@
+ Array
+======
+An array is a consecutive or sequential set of memory allocation which shares common name and common data type. Each location has accessed by index number. The index always starts with Zero.
+
+Syntax For Declare an Array
+====================
+datatype VariableName[Size];
+datatype VariableName[]={Value1,Value2,......};  --> Array Intialization
+ex:
+int n[10];
+int m[]={100,21,55,3,43,34,33,2,66};
+
+Example1
+==========
+#include<stdio.h>
+main()
+{
+  int a[5],i;
+  int b[]={10,11,12,13,14};
+  a[0]=2;
+  a[1]=4;
+  a[2]=6;
+  a[3]=8;
+  a[4]=14;
+  printf("\n Printing Array a\n");
+
+  printf("\n a[0] Value is : %d",a[0]);
+  printf("\n a[1] Value is : %d",a[1]);
+  printf("\n a[2] Value is : %d",a[2]);
+  printf("\n a[3] Value is : %d",a[3]);
+  printf("\n a[4] Value is : %d",a[4]);
+
+  printf("\n Printing Array b\n");
+  for(i=0;i<=4;i++)
+   {
+printf("\n b[%d] Value is : %d",i,b[i]);
+   }
+}
+
+Example2
+========
+ #include<stdio.h>
+main()
+{
+  int a[5],i;
+ 
+  printf("\n Enter the Values for Array a\n");
+   for(i=0;i<5;i++)
+    {
+      printf("\n Enter Value For a[%d]:",i);
+      scanf("%d",&a[i]);
+    }
+
+  printf("\n Printing Array a\n");
+
+  for(i=0;i<5;i++)
+   {
+     printf("\n a[%d] Value is : %d",i,a[i]);
+   }
+}
+Example3
+------------
+#include<stdio.h>
+main()
+{
+  int a[5],i,sum=0;
+ 
+  printf("\n Enter the Values for Array a\n");
+   for(i=0;i<5;i++)
+    {
+      printf("\n Enter Value For a[%d]:",i);
+      scanf("%d",&a[i]);
+	 sum+=a[i];
+    }
+
+   printf("\n The sum is: %d",sum);
+}
+
+
+Character Array
+=============
+It is used to store collection of characters(String) in an array and can accessed all characters like a string. There is no need to specify each location by its index value we can simply read/write all characters using the control string/format specifier %s. In character array the last char has automatticaly filled by \0 which is known as Null character.
+
+Example1
+========
+#include<stdio.h>
+main()
+{
+  char name[15];
+  
+  printf("\n Enter Your Name");    
+  scanf("%s",name);
+
+  printf("\nWelcome : %s",name);    
+}
+ 
+Two Dimentional/ Multi Dimentional Array
+=============================
+datatype VariableName[RowSize][ColumnSize];
+datatype VariableName[][]={{	Value1,Value2,......},{Value1,Value2,......}};  --> 
+int a[][]={{1,3,7,9},{2,4,6,8},{1,2,3,4}}
+1 3 7 9
+2 4 6 8
+1 2 3 4
+Array Intialization
+ex:
+int n[10][3];
+int m[][]={{100,21,5},{5,3,43},{34,33,2}};
+
+R0C0	R0C1	R0C2
+R1C0	R1C1	R1C2
+R2C0	R2C1	R2C2
+
+100  21   5
+5      3   43
+34    33  2
+
+Example1
+========
+#include<stdio.h>
+main()
+{
+  int a[3][3],r,c;
+
+  printf("\nEnter the Values For 3x3 Array\n\n");
+
+  for(r=0;r<3;r++)
+   {
+     for(c=0;c<3;c++)
+      {
+	printf("\n Enter The Value For a[%d][%d] :",r,c);
+        	scanf("%d",&a[r][c]);
+      }
+   }
+  printf("\nThe 3x3 Matrix Values Are:\n\n");
+
+  for(r=0;r<3;r++)
+   {
+     for(c=0;c<3;c++)
+      {
+	printf("%d ",a[r][c]);
+      }
+    printf("\n");
+
+   }
+}
+
+2 D Character array 
+================
+ #include<stdio.h>
+main()
+{
+   char Frnds[5][20];
+   int i; 
+   printf("\nEnter your 5 Friends Name :");
+   for(i=0;i<5;i++)
+    {
+      scanf("%s",Frnds[i]);
+    }
+
+   printf("\nYour Friends Are:");
+   for(i=0;i<5;i++)
+    {
+     printf("\n%s",Frnds[i]);
+    }
+}
+
+Solve the Following
+===================
+1. Write a programe to Sort the given 10 numbers in ascending order using array
+2. Write a programe to Sort the given 10 numbers in descending order using array
+3. Write a program to Covert the Name Lower to Upper case
+4. Write a program to find product of given 10 numbers using array
+5. Write a program to perform 3X3 Matrix addition using array
+6. Write a program to reverse the given string
+7. Write a program to count No of Uppercase Letters, No of Lowercase Letters, Numbers, Blank spaces and Special characters, Vowels, consonants from  given string
+8. Write a program to remove the extra spaces from given string
+9. Write a program to print the n Number of prime number series (1,2,3,5,7,11,13,17,19,23,29,31,37...)
+10. Write a program to print n number of fibonacci series (0 1 2 3 5 8 13 21 34 ...)

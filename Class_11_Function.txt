@@ -1,0 +1,331 @@
+  Functions
+==============
+1. Built in Functions or System Functions or Pre Defined Functions
+
+    printf(), scanf(),getch(),clrscr(),puts(),gets(),strlen(),strcmp(),strcpy()
+2. User Defined Functions
+
+Structure Of the Function
+returnValue FunctionName(Arguments/Parameter)
+
+Classifications
+=============  
+1. Functions without Arguments and without Return value
+2. Functions with Arguments and without Return value
+3. Functions without Arguments and with Return value
+4. Functions with Arguments and with Return value
+
+Examples of Built in Functions with Classification
+-----------------------------------------------
+
+Functions without Arguments and without Return value
+...........................................................................................
+  clrscr()  
+Functions with Arguments and without Return value
+...........................................................................................
+  printf(),scanf(),puts(),gets(),strcpy(),strcat(),strrev()
+Functions without Arguments and with Return value
+...........................................................................................
+   getch(), getchar()
+Functions with Arguments and with Return value
+...........................................................................................
+  strlen(),strcmp(),strcmpi()
+
+
+Function Declaration or Function Prototyping
+------------------------------------------------------------
+return type functionName(argumentType1,argumentType2,argumentType3,...)
+
+in Main Function
+function Calling
+---------------------
+  functionName(actualArg1,Actual Arg2,...)
+
+Function Definition
+--------------------------
+outside the main Function
+returnType FunctionName(datatype Formal argument1,datatype Formal argument2,..)
+{
+ function body
+
+}
+Note : formal function argument also known as dummy argument
+
+Example1
+=========
+#include<stdio.h>
+void Add(); 
+main()
+{
+ printf("\n1. Functions without Arguments and without Return value");
+ Add();
+ printf("\nFunction Called Successfully");
+ Add(); 
+}
+void Add()
+{
+  int n1,n2;
+  printf("\nEnter the value for n1");
+  scanf("%d",&n1);
+  printf("\nEnter the value for n2");
+  scanf("%d",&n2);
+  printf("\nThe Addition Result is : %d",(n1+n2));
+}
+
+
+Example2
+========
+#include<stdio.h>
+void Add(int,int); 
+main()
+{
+  int n1,n2;
+  printf("\n1. Functions with Arguments and without Return value");
+   
+  printf("\nEnter the value for n1:");
+  scanf("%d",&n1);
+  printf("\nEnter the value for n2:");
+  scanf("%d",&n2);
+  Add(n1,n2);
+  printf("\nFunction Called Successfully");
+  Add(25,55); 
+  
+}
+void Add(int a,int b)
+{
+  printf("\nThe Addition Result is : %d",(a+b));
+}
+
+Example3
+========
+#include<stdio.h>
+int Add(); 
+main()
+{
+ int ans=0;
+  printf("\n3.Functions without Arguments and with Return value");
+ 
+ ans=Add();
+ printf("\nThe Addition Result is : %d",ans);
+ 
+ printf("\nThe Addition Result is : %d",Add());  
+  }
+int Add()
+{
+  int n1,n2;
+  printf("\nEnter the value for n1:");
+  scanf("%d",&n1);
+  printf("\nEnter the value for n2:");
+  scanf("%d",&n2);
+  return (n1+n2); 
+}
+                                                                                                                                                                
+
+
+Example4
+=========
+#include<stdio.h>
+int Add(int,int); 
+main()
+{
+  int n1,n2,ans=0;
+  printf("\n4.Functions with Arguments and with Return value");  
+  
+  printf("\nEnter the value for n1:");
+  scanf("%d",&n1);
+  printf("\nEnter the value for n2:");
+  scanf("%d",&n2);                     
+
+ ans=Add(n1,n2);
+ printf("\nThe Addition Result is : %d",ans);
+ 
+ printf("\nThe Addition Result is : %d",Add(100,500));  
+  
+}
+int Add(int a,int b)
+{
+  return (a+b); 
+} 
+
+Example 5
+
+#include<stdio.h>
+int add(int a,int b)
+{
+return(a+b);
+}
+main()
+{
+  int n1,n2;
+  int ans=0;
+  printf("\n4.Functions with Arguments and with Return value");  
+  
+  printf("\nEnter the value for n1");
+  scanf("%d",&n1);
+  printf("\nEnter the value for n2");
+  scanf("%d",&n2);
+
+
+ ans=Add(n1,n2);
+ printf("\nThe Addition Result is : %d",ans);
+ 
+ printf("\nThe Addition Result is : %d",Add(100,500));  
+  
+}
+
+Nested Function
+------------------
+
+#include<stdio.h>
+void Calc(int,int,char);
+int Add(int,int);
+int Sub(int,int);
+int Multi(int,int);
+float Div(int,int);
+main()
+{
+  int n1,n2;
+  char ch;
+  printf("\n\t\t\tCalculator");
+  printf("\n\t\t\t============");
+  printf("\n1.Add =>A");
+  printf("\n2.Subtract =>S");
+  printf("\n3.Multiply =>M");
+  printf("\n4.Divide =>D");
+  printf("\nPlease enter the Choice[A/S/D/M]");
+  scanf("%c",&ch);
+
+  printf("\nEnter the number 1:");
+  scanf("%d",&n1);
+ 
+  printf("\nEnter the number 2:");
+  scanf("%d",&n2);
+
+   Calc(n1,n2,ch);
+}
+void Calc(int m1,int m2,char choice)
+{
+ switch(choice)
+  {
+    case 'A':
+    case 'a':
+     {
+        printf("\nAddition Result is : %d",Add(m1,m2));
+        break;
+     }
+    case 'S':
+    case 's':
+     {
+        printf("\nSubtraction Result is : %d",Sub(m1,m2));
+        break;
+     }
+    case 'M':
+    case 'm':
+     {
+        printf("\nMultiplication Result is : %d",Mul(m1,m2));
+        break;
+     }
+    case 'D':
+    case 'd':
+     {
+        printf("\nDivision Result is : %f",Div(m1,m2));
+        break;
+     }
+     default:
+     {
+        printf("\nInvalid choice");
+     }
+  }
+} 
+int Add(int v1,int v2)
+  {
+    return (v1+v2);
+  } 
+int Sub(int v1,int v2)
+  {
+    return (v1-v2);
+  } 
+int Mul(int v1,int v2)
+  {
+    return (v1*v2);
+  } 
+float Div(int v1,int v2)
+  {
+    float res=(float)v1/(float)v2;
+    return (res);
+  }
+
+Recursive Function
+==================
+A function calls itself is known as Recursive function.
+
+#include<stdio.h>
+void Num(int);
+main()
+{
+int n;
+printf("\nEnter the n value to print a Series");
+scanf("%d",&n);
+Num(n);
+}
+void Num(int n1)
+{
+   if(n1>0)
+     {
+       printf("\n%d",n1);
+       Num(--n1);
+    }  
+}
+Call By Value
+-----------------
+#include<stdio.h>
+void Show(int);
+main()
+{
+  int n;
+  printf("\nEnter the value for n:");
+  scanf("%d",&n);
+
+  printf("\nThe value of n (before Function call): %d",n);     
+  Show(n);
+  printf("\nThe value of n (After Function call): %d",n);
+}
+void Show(int a)
+{
+  a+=100;
+  printf("\nThe value of a is %d",a);
+}
+
+Call by Reference
+==============
+#include<stdio.h>
+void Show(int*);
+main()
+{
+  int n;
+  printf("\nEnter the value for n:");
+  scanf("%d",&n);
+  printf("\nThe value of n (before Function call): %d",n);
+  Show(&n);
+  printf("\nThe value of n (After Function call: %d",n);
+}
+void Show(int *a)
+{
+  *a+=100;
+  printf("\nThe value of a is %d",*a);
+}
+
+Solve The Following Using User Defined Function (Built in Functions Strictly not allowed)
+==========================================================================================
+1. Write a program to check the given String is Palindrome
+2. Write a program to count Number of words in a given String
+3. Write a program to Find number of Vowels in a given string
+4. Write a program to find Number of Lowercase letters and Number of Uppercase letters in a String
+5. Write a program to Print a Triangle pattern of a given string
+6. Write a program to count number occurance of a word from given string
+7. Write a program to Change the Case the given stgrin with below listed Option using string functios
+		1.Lower case 2.Upper Case 3.Toggle case  4.Title case  5.Sentence case 
+8. Write a program to Sort the given Names in a 2 Dimension char Array
+9. Write a program to merge two strings without using String function
+10. Write a program to Find the Maximum occurrence Vowel and consonants in a given string
+11. Write a program to Reverse the String using Function

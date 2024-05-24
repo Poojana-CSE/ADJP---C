@@ -1,0 +1,222 @@
+Dynamic Memory#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+  int n,i,*arr;
+  printf("\nPlease Enter the number of values Need :");
+  scanf("%d",&n);
+  arr= (int*) calloc(n , sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }
+   
+ printf("\nPlease Enter the number of values Need to Modify :");
+  scanf("%d",&n);
+  arr= (int*) realloc(arr , n*sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }   
+
+}v#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+  int n,i,*arr;
+  printf("\nPlease Enter the number of values Need :");
+  scanf("%d",&n);
+  arr= (int*) calloc(n , sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }
+   
+ printf("\nPlease Enter the number of values Need to Modify :");
+  scanf("%d",&n);
+  arr= (int*) realloc(arr , n*sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }   
+
+} Allocation
+=========================
+Dynamic memory allocation a method to allocate dynamic size of an array.There are 4 library functions provided by C defined under <stdlib.h> header file to facilitate dynamic memory allocation in C programming. 
+malloc()
+calloc()
+free()
+realloc()
+                                               
+malloc() --> Memory Allocate
+-------------------------------
+arrayname=(datatype*) malloc(size*sizeof(datatype)
+arr= (int*) malloc(50 * sizeof(int));
+
+Example1:
+==========
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+  int n,i,*arr;
+  printf("\nPlease Enter the size of array :");
+  scanf("%d",&n);
+  arr= (int*) malloc(n * sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+   }
+}
+
+Calloc --> contiguous allocation
+---------------------------------	
+
+The same as malloc but only difference is
+1. Each location will set as zero
+2. The calloc has Two arguments such as number of element and Number of Bytes
+
+arr = (data-type*)calloc(number of elements, total_memory_Size);
+
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+  int n,i,*arr;
+  printf("\nPlease Enter the number of values Need :");
+  scanf("%d",&n);
+  arr= (int*) calloc(n , sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+   }
+}
+
+Realloc--> Reallocate Memory
+-----------------------------
+The realloc function is used to extend the size dynamically.
+arr= reallocarr, newSize);
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+  int n,i,*arr;
+  printf("\nPlease Enter the number of values Need :");
+  scanf("%d",&n);
+  arr= (int*) calloc(n , sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }
+   
+ printf("\nPlease Enter the number of values Need to Modify :");
+  scanf("%d",&n);
+  arr= (int*) realloc(arr , n*sizeof(int));
+  for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }   
+
+}
+
+Free -- Used to release the memory
+-----------------------------------
+free(arr)
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+  int n,*arr,i;
+  printf("\nPlease Enter the number of values Need :");
+  scanf("%d",&n);
+  arr= (int*) malloc(n * sizeof(int));
+
+   for(i=0;i<n;i++) 
+   {
+    printf("\nEnter the value of arr[%d] : ",i);
+	scanf("%d",&arr[i]);
+   }
+
+   printf("\nThe values are \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }
+
+   free(arr); 
+
+   printf("\nThe values after reset \n\n");
+   for(i=0;i<n;i++) 
+   {
+ 	 printf(" %d",arr[i]);
+	 
+   }  
+
+}  
+
+Solve the Following
+====================
+1. Write a Program to Prepare a Bill for Grocery Items  

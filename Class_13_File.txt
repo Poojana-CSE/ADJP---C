@@ -1,0 +1,380 @@
+File Operations
+===============
+The file is very essential thing when we seeking to store Result / informations permanently. We can store the data to a file using c programming for the future use.
+ In order to store information permanently and retrieve it we need to use files and the following programs demonstrate creation of a file, Storing Information in a file and Reading the data present in the file.
+
+Example1 (File Write)
+
+#include<stdio.h>
+#include<string.h>
+main()
+{
+FILE *fp;
+char s[80],fname[25];
+
+printf("\n Enter the Filename:");
+gets(fname);
+fp=fopen(fname,"w");
+if(fp==NULL)
+{
+printf("\n Cannot open or Create a File");
+exit(0);
+}
+fputs("Welcome to File Programming\n ",fp);
+printf("\n Enter Your Text to Write on a File[type '!!--!!' to close]\n\n");
+
+while(strcmp(gets(s),"!!--!!")!=0)
+{
+fputs(s,fp);
+fputs("\n",fp);
+}
+puts("File Creation Sucessful");
+fclose(fp);
+}
+
+Example1_1 (File Write)
+#include<conio.h>
+#include<string.h>
+main()
+{
+FILE *fp;
+char s[80],fname[25];
+
+printf("\n Enter the Filename:");
+gets(fname);
+fp=fopen(fname,"w");
+if(fp!=NULL)
+{
+	fputs("Welcome to File Programming\n",fp);
+	printf("\n Enter Your Text to Write on a File[type '!!--!!' to close]\n\n");
+
+	while(strcmp(gets(s),"!!--!!")!=0)
+	  {
+	    fputs(s,fp);
+	    fputs("\n",fp);
+	  }
+     puts("File Creation Sucessful");
+     fclose(fp);
+}
+else
+{
+printf("\n Cannot open or Create a File");
+exit(0);
+}
+
+
+}
+
+Example2 (File Write)
+#include <stdio.h>
+main()
+ {
+   char sname[25],fname[50];
+   int marks,i,n;
+   FILE *fptr;
+
+   printf("Enter number of students: ");
+   scanf("%d",&n);
+
+   printf("\nEnter the File Name:");
+  gets(fname);
+   fptr=fopen(fname,"a"); 
+   if(fptr==NULL)
+   {
+       printf("Error in Opening File");
+       exit(1);
+   }
+   fputs("STUDENT LIST\n",fptr);
+   fputs("Name\t\t\tMarks",fptr);
+   fputs("\n============================",fptr);
+   for(i=1;i<=n;++i)
+   {
+      printf("\nEnter Student name %d: ",i);
+      scanf("%s",sname);
+      printf("Enter Student mark: ");
+      scanf("%d",&marks);
+      fprintf(fptr,"\n%s \t\t\t%d",sname,marks);
+   }
+   fclose(fptr);
+
+}
+
+Example 4(File Read)
+-----------------------------
+#include<stdio.h>
+main()
+{
+FILE *fp;
+int count;
+char str[80],fname[15];
+printf("\nEnter the File Name:");
+scanf("%s",fname);
+fp=fopen(fname,"r");
+if(fp==NULL)
+{
+printf("\n Cannot open a File");
+exit(0);
+}
+count=0;
+printf("\n The Contents of your file is\n\n\n");
+while(fgets(str,80,fp)!=NULL)
+{
+printf("%s",str);
+count++;
+}
+printf("Total Lines   :%d\n\n",count);
+fclose(fp);
+} 
+
+Example 3(File Object Write)
+#include <stdio.h>
+struct bank
+{
+char cname[50];
+int balance;
+};
+main()
+{
+    struct bank a;   
+    FILE *fptr;
+    char fname[20],ch;
+    
+    printf("\nEnter the File Name:");
+    gets(fname);
+    fptr=fopen(fname,"wb");
+	do
+	{
+        fflush(stdin);
+        printf("\nEnter name: ");
+        gets(a.cname);
+        printf("\nEnter the Account balance: "); 
+        scanf("%d",&a.balance); 	
+        fwrite(&a,sizeof(a),1,fptr);
+	    printf("\nWanna add more Customers?");
+		ch=getch();
+	 }while((ch=='y')||(ch=='Y')); 
+    fclose(fptr);
+}
+
+
+Example 6: (Object Read)
+==================
+#include <stdio.h>
+struct bank
+{
+char cname[50];
+int balance;
+};
+main()
+{
+    struct bank a;   
+    FILE *fptr;
+    char fname[20];
+    
+    printf("\nEnter the File Name:");
+    gets(fname);
+    fptr=fopen(fname,"rb");
+    printf("\n==================================\n");    
+    printf("Name \t\t\t Balance");
+    printf("\n==================================\n");
+
+   while(fread(&a,sizeof(a),1,fptr))
+    {
+      printf("\n%s \t\t\t %d",a.cname,a.balance);     
+    }
+    printf("\n-----------------------------------");
+    
+    fclose(fptr);
+}
+
+Copy a File to New File
+=======================
+#include<stdio.h>
+main()
+{
+FILE *fp1,*fp2;
+int count=0;
+char str[80],fname[15];
+printf("\nEnter the Existing File Name:");
+scanf("%s",fname);
+fp1=fopen(fname,"r");
+if(fp1==NULL)
+{
+printf("\n Cannot open a File");
+exit(0);
+}
+printf("\nEnter the New File Name:");
+scanf("%s",fname);
+fp2=fopen(fname,"w");
+if(fp2==NULL)
+{
+printf("\n Cannot open a File");
+exit(0);
+}
+
+printf("\nCopying Process Started.....");
+while(fgets(str,80,fp1)!=NULL)
+{
+fputs(str,fp2);
+count++;
+}
+
+printf("\n%d Lines Copied successfully...",count);
+fclose(fp1);
+fclose(fp2);
+} 
+
+Delete a File
+==============
+#include<stdio.h>
+main()
+{
+char fname[15];
+printf("\nEnter the File Name to Delete:");
+scanf("%s",fname);
+if(remove(fname)==0)
+  printf("\nFile Removed Successfully");
+else
+  printf("\nUnable to Delete the File may not available or Not Deletable");
+} 
+
+Renaming the File
+=================
+#include<stdio.h>
+main()
+{
+char fname1[15],fname2[15];
+printf("\nEnter the Existing File Name:");
+scanf("%s",fname1);
+printf("\nEnter the New File Name:");
+scanf("%s",fname2);
+if(rename(fname1,fname2)==0)
+  printf("\nFile Renamed Successfully");
+else
+  printf("\nUnable to Rename the File. It may not available or Access may denied");
+} 
+
+
+For Reference
+===========================
+Read / Write Objects
+----------------------------
+Example1 (File Write)
+----------------------------------
+#include<stdio.h>
+#include<string.h>
+struct student
+  {
+     int sno,m1,m2,m3,m4,m5,tot;
+     char name[15],result[5];
+     float avg;
+	 
+  };
+main()
+{
+ struct student s; 
+ char ch;
+ FILE *fp_passed,*fp_failed;
+
+ fp_passed=fopen("PassList.txt","wb");
+ fp_failed=fopen("FailList.txt","wb");
+ 
+ do
+  {
+   printf("\nEnter the Sno:");
+   scanf("%d",&s.sno);
+
+   printf("\nEnter the Name:");
+   scanf("%s",s.name);
+
+   printf("\nEnter the M1:");
+   scanf("%d",&s.m1);
+
+   printf("\nEnter the M2:");
+   scanf("%d",&s.m2);
+
+   printf("\nEnter the M3:");
+   scanf("%d",&s.m3);
+
+   printf("\nEnter the M4:");
+   scanf("%d",&s.m4);
+
+   printf("\nEnter the M5:");
+   scanf("%d",&s.m5);
+
+   s.tot=s.m1+s.m2+s.m3+s.m4+s.m5;
+   s.avg=(float)s.tot/(float)5;
+
+	if((s.m1>=35)&&(s.m2>=35)&&(s.m3>=35)&&(s.m4>=35)&&(s.m5>=35))
+	{
+	  strcpy(s.result,"Pass");
+	  fwrite(&s,sizeof(s),1,fp_passed); 
+	}
+	else
+	{
+	  strcpy(s.result,"Fail");	
+	  fwrite(&s,sizeof(s),1,fp_failed);
+	}
+    printf("\nWanna add more Customers?");
+    ch=getch();
+  }while((ch=='y')||(ch=='Y')); 
+ 
+  fclose(fp_passed);
+  fclose(fp_failed);
+}
+
+
+Example2(Object Read)
+----------------------------------
+#include<stdio.h>
+#include<string.h>
+struct student
+  {
+     int sno,m1,m2,m3,m4,m5,tot;
+     char name[15],result[5];
+     float avg;
+	 
+  };
+main()
+{
+ struct student s; 
+ int i,pass=0,fail=0;
+ FILE *fp_passed,*fp_failed;
+
+ fp_passed=fopen("PassList.txt","rb");
+ fp_failed=fopen("FailList.txt","rb");
+ 
+printf("\n\t\t\tStudent Exam Report (Passed)");
+printf("\n\t\t\t================================");
+printf("\n\nSno\tName\tTotal\n");
+printf("------------------------\n");
+while(fread(&s,sizeof(s),1,fp_passed))
+{
+   	printf("\n%d\t%s\t%s",s.sno,s.name,s.result);
+}
+printf("\n------------------------");
+printf("\n\t\t\tStudent Exam Report (Faild)");
+printf("\n\t\t\t================================");
+printf("\n\nSno\tName\tTotal\n");
+printf("------------------------");
+while(fread(&s,sizeof(s),1,fp_failed))
+{
+   	printf("\n%d\t%s\t%s",s.sno,s.name,s.result);
+}  
+printf("\n------------------------");
+  fclose(fp_passed);
+  fclose(fp_failed);
+}
+
+Solve The Following
+====================
+1. Write a Progam create a Student information system with RegNo,Name,Gender,Address to a File and make using File and Structure
+   1) Add New Records to an Existing File
+   2) Delete a Particular Student (Using RegNo) From a File
+   3) Modify the Details of Particular Student usig RegNo
+   4) Print to Updated List  
+2. Write a program to do the Following actions with Option
+   1) Create a New File
+   2) Create a Copy of a File with New Name
+   3) Rename the File
+   4) Delete the File (with alert and Conformation before delete)

@@ -1,0 +1,219 @@
+Structure
+--------------
+ The structure is used to bind collection of different data type in a single name.
+ We can access the variables using structure object. We can create any number of object for a structure, every object has its own memory. It is also known as user defined data type.
+
+Syntax for Declaring structure is
+------------------------------------------
+struct <structureName>
+{
+  variable declarations;
+};
+Syntax for creating an object for a structure is
+------------------------------------------------
+struct <structurename> <objectName>
+ Access the Structure Member
+---------------------------------
+objectName.variableName;
+
+Example1
+----------
+#include<stdio.h>
+struct EBill
+  {
+     int scno,Prd,Crd,Trd;
+     char name[15];
+  };
+main()
+{
+ struct EBill e1; 
+ printf("\nEnter the Scno:");
+ scanf("%d",&e1.scno);
+
+ printf("\nEnter the Name:");
+ scanf("%s",e1.name);
+
+ printf("\nEnter the Previous Reading:");
+ scanf("%d",&e1.Prd);
+
+ printf("\nEnter the Current Reading:");
+ scanf("%d",&e1.Crd);
+
+ e1.Trd=e1.Crd-e1.Prd;
+
+ printf("\nSCNo:%d",e1.scno);
+ printf("\nName:%s",e1.name);
+ printf("\nTotal Reading:%d",e1.Trd);
+
+}
+
+Example2
+-------------
+#include<stdio.h>
+struct student
+  {
+     int sno,m1,m2,m3,m4,m5,tot;
+     char name[15];
+     float avg;
+  } ;
+
+main()
+{
+ struct student s[5]; 
+ int i;
+ for(i=0;i<5;i++)
+  {
+   printf("\nEnter the Sno:");
+   scanf("%d",&s[i].sno);
+
+   printf("\nEnter the Name:");
+   scanf("%s",s[i].name);
+
+   printf("\nEnter the M1:");
+   scanf("%d",&s[i].m1);
+
+   printf("\nEnter the M2:");
+   scanf("%d",&s[i].m2);
+
+   printf("\nEnter the M3:");
+   scanf("%d",&s[i].m3);
+
+   printf("\nEnter the M4:");
+   scanf("%d",&s[i].m4);
+
+   printf("\nEnter the M5:");
+   scanf("%d",&s[i].m5);
+
+   s[i].tot=s[i].m1+s[i].m2+s[i].m3+s[i].m4+s[i].m5;
+   s[i].avg=(float)s[i].tot/5.0;
+}
+  printf("\n STUDENT RESULT");
+  printf("\n =================\n\n");
+
+  printf("\nSno\tName\t\tTot\tAvg");
+  printf("\n********************************");
+  
+for(i=0;i<5;i++)
+  {
+      printf("\n%d\t%s\t\t%d\t%.2f",s[i].sno,s[i].name,s[i].tot,s[i].avg);
+  }
+}
+
+Example3
+-----------
+#include<stdio.h>
+struct student
+  {
+     int sno,m1,m2,m3,m4,m5,tot;
+     char name[15];
+     float avg;
+  };
+
+void disp(struct student);
+main()
+{
+ struct student s;
+
+   printf("\nEnter the Sno:");
+   scanf("%d",&s.sno);
+
+   printf("\nEnter the Name:");
+   scanf("%s",&s.name);
+
+   printf("\nEnter the M1:");
+   scanf("%d",&s.m1);
+
+   printf("\nEnter the M2:");
+   scanf("%d",&s.m2);
+
+   printf("\nEnter the M3:");
+   scanf("%d",&s.m3);
+
+   printf("\nEnter the M4:");
+   scanf("%d",&s.m4);
+
+   printf("\nEnter the M5:");
+   scanf("%d",&s.m5);
+
+   s.tot=s.m1+s.m2+s.m3+s.m4+s.m5;
+   s.avg=(float)s.tot/(float)5;
+
+disp(s);
+
+}
+
+void disp(struct student s1)
+{
+  printf("\n STUDENT RESULT");
+  printf("\n =================\n\n");
+
+  printf("\nSno\tName\t\tTot\tAvg");
+  printf("\n========================================");
+       printf("\n%d\t%s\t\t%d\t%0.2f",s1.sno,s1.name,s1.tot,s1.avg);
+}
+
+
+Example4
+--------------
+#include<stdio.h>
+struct student
+  {
+     int sno,m1,m2,m3,m4,m5,tot;
+     char name[15];
+     float avg;
+  };
+
+void disp(struct student*);
+main()
+{
+ struct student s;
+
+   printf("\nEnter the Sno:");
+   scanf("%d",&s.sno);
+
+   printf("\nEnter the Name:");
+   scanf("%s",s.name);
+
+   printf("\nEnter the M1:");
+   scanf("%d",&s.m1);
+
+   printf("\nEnter the M2:");
+   scanf("%d",&s.m2);
+
+   printf("\nEnter the M3:");
+   scanf("%d",&s.m3);
+
+   printf("\nEnter the M4:");
+   scanf("%d",&s.m4);
+
+   printf("\nEnter the M5:");
+   scanf("%d",&s.m5);
+
+   s.tot=s.m1+s.m2+s.m3+s.m4+s.m5;
+   s.avg=(float)s.tot/(float)5;
+
+disp(&s);
+
+}
+void disp(struct student *s1)
+{
+  printf("\n STUDENT RESULT");
+  printf("\n =================\n\n");
+
+  printf("\nSno\tName\t\tTot\tAvg");
+  printf("\n========================================");
+       printf("\n%d\t%s\t\t%d\t%0.2f",s1->sno,s1->name,s1->tot,s1->avg);
+}
+
+Solve the Following
+===================
+1. Write a program to Make a Billing Process for a Hotel 
+	Have to store all Itmes and its Price in a structure and make a bill to customer in proper format
+2. Prepare a mark statement for n number of 12th students (RegNo,Name,Gender,GrpCode,M1,M2,M3,M4,M5,Total,Average,Result) using Structure and Dynamic memory allocation
+3. Write a program Seperate n Number of students list to PassList, Fail List and print seperately using structure and dynamic memory allocation
+3. Write a Program to Manage Bank Trasanction (Deposite, Withdraw)for Customers(AccNo,Name,AccBalance) using Sturucture, Dynamic Memory Allocation and User Defined Functions
+4. Write a program to Print a Mark Stament with Rank Order (Note : Failed Student are Exempted ) using Structure and Dynamic Memory Allocation
+5. Write a Program to Make ATM Process using Sturucture and Dynamic memory allocation
+	1) First Load Amount to ATM with Denomination (Like 500s:1000,200s: 10000,100s:10000) 
+	2) While Customer withdraw the amount Automatically Denominate available Notes
+	3) Allow customers to Deposite with Proper Denomination 

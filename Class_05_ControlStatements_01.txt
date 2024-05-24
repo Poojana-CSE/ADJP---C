@@ -1,0 +1,385 @@
+Control Statements or Control Structures
+==========================================
+Desicion Making Statements
+---------------------------------
+  if statement or Simple if statement
+  if else
+  if else if
+  nested if 
+  switch case 
+
+Looping Statements
+-----------------------
+  while loop
+  do while loop
+  for loop
+
+Unconditional Statements
+--------------------------------
+  break
+  continue
+  goto
+
+if statement
+============
+    Used to make a desicion based on a condition. 
+  Syntax:
+  ---------
+   if(condition)
+       Statement_if_True;
+
+    (or)
+
+ if(condition)
+   {
+       Statement_if_True;
+   }
+
+   if(condition)
+    {
+       true block;(More than one statement)
+    }
+Example1
+----------
+#include<stdio.h>
+main()
+{
+  int n1,n2; 
+  printf("\n Enter the Value for N1:");
+  scanf("%d",&n1);
+  printf("\n Enter the Value for N2:");
+  scanf("%d",&n2);
+   if(n1>n2)  
+    printf("\n n1 is biggest Value");
+ printf("\nProgram Ended....");	
+        
+}
+
+---------------------------------------------------------
+
+if else 
+********
+if(condition)
+  {
+     true block;
+  }
+else
+  {
+     false block
+  }
+
+
+Example1
+-----------
+#include<stdio.h>
+main()
+{
+  int n1,n2;
+ 
+  printf("\n Enter the Value for N1:");
+  scanf("%d",&n1);
+
+  printf("\n Enter the Value for N2:");
+  scanf("%d",&n2);
+       if(n1>n2)  
+         {
+	   printf("\n n1 is biggest Value");
+         }
+      else
+        {
+	   printf("\n n2 is biggest Value");
+         }
+   printf("\nProgram Ended....");	
+}
+
+if else if 
+********
+if(condition1)
+  {
+     true block1;
+  }
+else if(condition2)
+  {
+     true block2;
+  }
+else if(condition3)
+  {
+     true block3;
+  }
+else if(condition4)
+  {
+     true block5;
+  }
+else
+  {
+     false block
+  }
+
+------------
+Example1
+--------
+#include<stdio.h>
+main()
+{
+  int n1,n2;
+ 
+  printf("\n Enter the Value for N1:");
+  scanf("%d",&n1);
+
+  printf("\n Enter the Value for N2:");
+  scanf("%d",&n2);
+     if(n1>n2)  
+        printf("\n n1 is biggest Value");
+     else if(n1==n2)
+        printf("\nN1 and n2 are Equal");
+     else
+        printf("\n n2 is biggest Value");
+   printf("\nProgram Ended....");	
+}
+
+Example2
+-----------
+#include<stdio.h>
+main()
+{
+ int n;
+  printf("\nEnter a value for n:");
+  scanf("%d",&n);
+  
+  if(n<0)
+     printf("\nThe number is negative");
+ else if(n==0)
+   printf("\nThe number is zero");
+ else if((n>0) && (n<10))
+   printf("\nThe number is a single digit number");
+ else if((n>=10) && (n<100))
+   printf("\nThe number is a two digit number");
+ else if(n>99 && n<1000)
+   printf("\nThe number is a three digit number");
+ else 
+   printf("the number is a four or more digit number");
+ }
+Nested If
+************
+if(condition)
+  {
+     if(condition)
+        {
+          true block;
+        }
+  }
+else
+  {
+     false block
+  }
+Example
+=======
+#include<stdio.h>
+main()
+{
+  char c;
+  int age;
+  printf("\n Are You an INDIAN [Y/N]:");
+  scanf("%c",&c);
+    if((c=='y') || (c=='Y'))
+     {
+       printf("\n Please Enter Your Age :");
+       scanf("%d",&age);
+        if(age>18)
+          printf("Eligible to Vote");
+        else
+           printf("Under Age : Not Eligible to Vote");
+      }
+     else if((c=='n')||(c=='N'))
+            printf("\nIndian's only Eligible To Vote In India");
+     else
+          printf("\nInvalid Choice");
+}
+
+Example2:
+-------------
+#include<stdio.h>
+main()
+{
+  char c;
+  int balance=10000,amt=0;
+  
+  printf("\n Please select your choice [W] for withdraw [D] for deposit:");
+  scanf("%c",&c);
+    if((c=='d') || (c=='D'))
+     {
+       printf("\n Please Enter Amount to Deposit :");
+       scanf("%d",&amt);
+	   
+	   balance+=amt;
+	   printf("\nThe New balance is : %d",balance);
+     }
+     else if((c=='w')||(c=='W'))
+      {
+       printf("\n Please Enter Amount to Withdraw :");
+       scanf("%d",&amt);
+	     if(amt> balance)
+		   {
+		     printf("\nInsufficient balance. Transaction Failed");
+		   }
+		   else
+		   {
+		     balance-=amt;
+	   		 printf("\nThe New balance is : %d",balance);	     
+		   }
+      }
+     else
+      {
+	     printf("\nInvalid Choice");
+      }
+}
+
+Switch  case
+==============
+switch(Value/Expression)
+{
+  case condition1:
+   {
+      true block1
+      break;
+   }
+  case condition2:
+   {
+      true block2
+      break;
+   }
+  case condition3:
+   {
+      true block3
+      break;
+   }
+  case condition4:
+   {
+      true block4
+      break;
+   }
+....
+....
+....
+  default:
+    {
+       false block;
+    }
+}
+
+Example:
+-----------
+#include<stdio.h>
+main()
+{
+  int num;
+   printf("\n Enter a Value:");
+   scanf("%d",&num);
+
+  switch(num)
+    {
+      case 1:
+       {
+	 printf("\n ONE");
+	 break;
+       }
+      case 2:
+       {
+	 printf("\n TWO");
+	 break;
+       }
+      case 3:
+       {
+	 printf("\n THREE");
+	 break;
+       }
+      case 4:
+       {
+	 printf("\n FOUR");
+	 break;
+       }
+      case 5:
+       {
+	 printf("\n FIVE");
+	 break;
+       }
+      default:
+       {
+	printf("\nEnter the Values Between 1 and 5");
+       }
+   }
+ }
+Example2
+-------------
+#include<stdio.h>
+main()
+{
+  char ch;
+  printf("\n Enter a Character:");
+  scanf("%c",&ch);
+  switch(ch)
+   {
+      case 'm':
+      case 'M':
+       {
+	 printf("\nGood Morning Friend");
+	 break;
+       }
+      case 'n':
+      case 'N':
+       {
+	 printf("\nGood Afternoon Friend");
+	 break;
+       }
+      case 'e':
+      case 'E':
+       {
+	 printf("\nGood Evening Friend");
+	 break;
+       }
+      default:
+       {
+	printf("\nGood Night");
+       }
+  }
+ }
+
+Example3
+=========
+#include<stdio.h>
+main()
+{
+  char ch;
+  printf("\n Enter a Character:");
+  scanf("%c",&ch);
+  switch(ch)
+   {
+      case 'A':
+      case 'a':
+      case 'E':
+      case 'e':
+      case 'I':
+      case 'i':
+      case 'O':
+      case 'o':
+      case 'U':
+      case 'u':
+       {
+	 printf("\nGiven character is a vowel");
+	 break;
+       }
+      default:
+       {
+	 printf("\nGiven character is Not a vowel");
+       }
+  }
+
+ }
+
+Try to Do it:
+============
+1. Write a program to Find Minimum value of given three numbers
+2. Wite a program to calculate Medical and Engineering cut-off marks
+3. Write a program to make a Mini calculator with Choice
+4. Write a program to check the given character is Lower case / Upper Case / Number / Blank Space
+5. Write a program to Find No.Of 2000's, 500's, 200's, 100's,50's, 20's, 10's,5's,2's,1's in a given amount.

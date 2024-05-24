@@ -1,0 +1,114 @@
+Special Input/Ouput Functions
+========================
+getch() / getchar()  ==> A special function to read a character
+putch()	                   ==> A Special function to print a character
+puts()	                   ==> A special function to print a string 							
+gets()	                   ==> A special function to read a String
+Example1:
+--------------
+#include<stdio.h>
+main()
+{
+  char c;
+    printf("\nEnter a character");
+    c=getch();
+
+  printf("\nThe Character is\n");
+  putch(c);
+}
+Example2
+--------------
+#include<stdio.h>
+main()
+{
+  char name1[15],name2[15];
+
+  printf("\nEnter your Name");
+  scanf("%s",name1);
+
+  printf("\nRe Enter your Name: ");
+  gets(name2);
+
+  puts("\n Your name is \n");
+  puts(name1);
+  puts(name2);
+}
+
+
+String Functions
+==============
+The string functions are used to handle or manage the string values.
+ The various string functions are listed below.
+we need to include string.h header file
+strlen()	---> to find the no of characters in a string
+strupr()	---> to convert lower case letters into uppercase in a string
+strlwr()	---> to convert upper case letters into lowercase in a string
+strcpy()	---> to copy a string value to another string variable
+strcat()	---> to append a string value to another string variable
+strrev()	---> to reverse the string
+strcmp()	---> to compare 2 strings and returns 0 is both are equal(case sensitive)
+strcmpi()---> to compare 2 strings and returns 0 is both are equal(NO case sensitive)
+
+name1: Jey
+name2:Chidharth
+name3  
+strcpy(name3,name1)  	--> name3 value 'Jey'
+strcat(name3,name2)   	--> name3 value 'JeyChidharth'
+strrev(name3)		--> name3 value 'htrahdihCyeJ'
+
+Example1:
+--------------
+#include<stdio.h>
+#include<string.h>
+main()
+{
+     int len;
+     char name1[20],name2[20],name3[20];
+     
+      puts("\n Enter the First Name:");
+        gets(name1);
+      puts("\n Enter the Second Name:");
+        gets(name2);
+
+       len=strlen(name1);
+       strcpy(name3,name1);
+       strcat(name3,name2);
+       printf("\nThe First Name is : %s",strupr(name1));
+       printf("\nThe Second Name is : %s",strlwr(name2));
+	   printf("\n The name3 is : %s",name3);
+       printf("\n The Reverse of name3 is : %s",strrev(name3));
+       printf("\n The Length of name1 is : %d",len);
+}
+
+Example2
+--------------
+#include<stdio.h>
+#include<string.h>
+
+main()
+{
+  char name1[20],name2[20];
+  puts("\n Enter the First Name:");
+  gets(name1);
+      
+  puts("\n Enter the Second Name:");
+  gets(name2);
+   if (strcmp(name1,name2)==0)
+       puts("\n Both names are Equal");
+   else
+      puts("\n Names are Not Equal");
+}     																								           
+
+Solve the Following
+--------------------
+1. Write a program to check the given String is Palindrome
+2. Write a program to count Number of words in a given String
+3. Write a program to Find number of Vowels in a given string
+4. Write a program to find Number of Lowercase letters and Number of Uppercase letters in a String
+5. Write a program to Print a Triangle pattern of a given string
+6. Write a program to count number occurance of a word from given string
+7. Write a program to Change the Case the given stgrin with below listed Option using string functios
+		1.Lower case 2.Upper Case 3.Toggle case  4.Title case  5.Sentence case 
+8. Write a program to Sort the given Names in a 2 Dimension char Array
+9. Write a program to merge two strings without using String function
+10. Write a program to Find the Maximum occurrence Vowel and consonants in a given string

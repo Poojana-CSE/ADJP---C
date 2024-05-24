@@ -1,0 +1,222 @@
+Operators
+==========
+ The Symbol which used to perform an operation or calculation is called as an operator.
+ Type-of operators are shown below
+=======================================
+ Arithmetic Operators
+ Relational or Comparision Operators
+ Logical Operators
+  Increment / Decrement  Operators
+ Assignment  Operators
+ Conditional  Operator
+ Bitwise  Operator70 Special Operators
+
+ Arithmetic Operators
+====================
+  Symbol		Operation's
+       +		  Addition
+       -		  Subtraction
+       *		  Multiplication
+       /		  Division
+      %		  Modulor Division
+
+Example 1
+=========
+#include<stdio.h>
+main()
+{
+  int n1,n2,res;
+  printf("\nEnter the first value :");
+  scanf("%d",&n1);
+  printf("\nEnter the Second value :");
+  scanf("%d",&n2);
+ 
+ res=n1+n2;
+  printf("\nThe Addition Result is : %d",res); 
+
+  res=n1-n2;
+  printf("\nThe Subtraction Result is : %d",res); 
+
+  res=n1*n2;
+  printf("\nThe Multiplication Result is : %d",res); 
+
+  res=n1/n2;
+  printf("\nThe Division Result is : %d",res); 
+
+  res=n1%n2;
+  printf("\nThe Modulo Result is : %d",res); 
+}
+Relational or Comparision Operators
+------------------------------------------------
+<	Less than
+<= 	Less than or Equal
+>	Greater than
+>=	Greater than or Equal
+==	Equal 
+!=	Not Equal
+
+True =1
+False =0
+100 > 50		True 	1
+50>100		False	0
+50>50		False	0
+50<50		False	0	
+50<=50		True	1
+50>=50		True	1
+50==50		True	1
+50==45		False	0
+50!=50		False	0	
+50!=45		True	1
+
+Example
+========
+
+#include<stdio.h>
+main()
+{
+  int n1,n2;
+  printf("\n Enter the Value for N1:");
+  scanf("%d",&n1);
+  printf("\n Enter the Value for N2:");
+  scanf("%d",&n2);
+	
+  printf("\n n1 > n2: %d",(n1>n2));
+  printf("\n n1 >= n2: %d",(n1>=n2));
+  printf("\n n1 < n2: %d",(n1<n2));
+  printf("\n n1 <= n2: %d",(n1<=n2));
+  printf("\n n1 = n2: %d",(n1==n2));
+  printf("\n n1 Not Equal to n2: %d",(n1!=n2));
+}
+Logical Operators
+--------------------
+  && 	Logical AND
+  ||	Logical OR
+   !	Not
+
+Truth Table For AND
+=======================
+
+ A	B	A&&B
+---------------------
+ F	F	F
+ F	T	F
+ T	F	F
+ T	T	T
+
+Truth Table For OR
+=======================
+
+ A	B	A||B
+---------------------
+ F	F	F
+ F	T	T
+ T	F	T
+ T	T	T
+
+Truth Table For NOT
+=======================
+
+ A	!A	
+-----------
+ F	T
+ T	F
+
+**********************************************
+
+Example
+=========
+Tamil	65  >= 35		=> True or 1
+English	45  >= 35		=> True or 1
+Maths	45  >= 35		=> True or 1
+Science	70  >= 35		=> True or 1
+Social	55  >= 35		=> True or 1
+
+(tamil>=35) && (english>=35) &&(maths>=35) && (Science>=35) && (social>=35)  === True -->Pass
+
+Tamil	65  >= 35		=> True or 1
+English	45  >= 35		=> True or 1
+Maths	25  >= 35		=> False or 0
+Science	70  >= 35		=> True or 1
+Social	55  >= 35		=> True or 1
+(tamil>=35) && (english>=35) &&(maths>=35) && (Science>=35) && (social>=35)  === False -->Fail
+
+Try To Do it:
+    Try to do the same using || (OR) operator
+
+
+Example 1
+----------
+#include<stdio.h>
+main()
+{
+  int n1,n2,n3;
+    printf("\n Enter the Value for N1:");
+    scanf("%d",&n1);
+    
+    printf("\n Enter the Value for N2:");
+    scanf("%d",&n2);
+
+     printf("\n Enter the Value for N3:");
+     scanf("%d",&n3);
+
+     printf("\n n1 > n2 and n1>n3: %d",(n1>n2) && (n1>n3));
+
+    printf("\n n1 > n2 or n1>n3:%d",(n1>n2) || (n1>n3));
+
+    printf("\n not(n1 > n2): %d", !(n1>n2));
+
+}
+
+Assignment Operator
+ =
+
+ variable = Value
+Example
+========
+a=100
+a=200
+
+  Shorthand Assignment Operators
+   +=
+   -=
+   *=
+   /=
+   %=
+Operation		Explain		Result
+  a=100				The value of a will get 100
+  a+=50		a=a+50		The value of a will get 150
+  a-=20		a=a-20		The value of a will get 130  
+  a*=5		a=a*5		The value of a will get 650 
+  a/=50		a=a/50		The value of a will get 13
+  a%=5		a=a%5		The value of a will get 3
+Example
+------------
+#include<stdio.h>
+main()
+{
+  int n1;
+	n1=100;
+	printf("\n N1 Value is: %d",n1);
+	n1+=50;
+	printf("\n After n1+=50 N1 Value is: %d",n1);
+	n1-=20;
+	printf("\n After n1-=20 N1 Value is: %d",n1);
+	n1*=5;
+	printf("\n After n1*=5 N1 Value is: %d",n1);
+	n1/=50;
+	printf("\n After n1/=50 N1 Value is: %d",n1);
+	n1%=5;
+	printf("\n After n1 modulas=5 N Value is: %d",n1);
+}
+
+Solve the Following
+====================
+1. Write a program to calculate Total, Average for given 5 numbers with proper alignment
+2. Write a program to swap two numbers without third valiable
+3. Write a program to Print your name using ASCII Value
+4. Write a program to Covert Inch to Feet
+5. Write a program to Find the next odd number of given number (shorthand assignment)
+6. Write a program to Print Week Days with Sno (shorthand assignment)
+7. Write a program to Find the EB current Consumption by getting Previous Reading and Current Reading
+8. Write a program to Print the English month name list with autometic serial number
+9. Write a program to convert Farenheit to Celcious

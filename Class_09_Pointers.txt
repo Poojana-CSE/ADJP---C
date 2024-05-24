@@ -1,0 +1,115 @@
+Pointers
+-----------------------------------------------------------------------------------------------
+---------------------------
+A Pointer is also a  variable used to store the address of an another variable.
+Pointer declaration
+-------------------------
+datatype *variableName;
+Example:
+--------------
+int n;  	--> normal variable
+int *m;	--> pointer variable
+Example1
+------------
+#include<stdio.h>
+main()
+{
+  int a,*aptr;
+  a=100;
+  aptr=&a;
+  printf("\nThe value of a is %d",a);
+  printf("\nAddress of a is %u",&a);
+
+  printf("\nAddress of a is (using Pointer) %u",aptr);
+  printf("\nvalue of a is(using Pointer) %d",*aptr);
+
+  a=150;
+
+  printf("\nAddress of a is (using Pointer) %u",aptr);
+  printf("\nvalue of a is(using Pointer) %d",*aptr);
+ }
+Example2
+--------------
+#include<stdio.h>
+main()
+{
+  int a=500,*aptr;
+    aptr=&a;
+ 
+  printf("\nAddress of a is%u",aptr);
+  printf("\nValue of a is%d",*aptr);
+  aptr++;
+ printf("\nNext Address of a is%u",aptr);
+printf("\nNext Value of a is%d",*aptr);
+}
+
+Example3
+-------------------
+ #include<stdio.h>
+main()
+{
+  int a[]={10,12,14,19,20},*aptr;
+  aptr=&a[0];
+  
+
+  printf("\nCurrent Address is %u",aptr);
+  printf("\n Current Value is %d",*aptr);
+
+  aptr++;
+
+  printf("\nCurrent Address is %u",aptr);
+  printf("\n Current Value is %d",*aptr);
+
+  aptr++;
+
+  printf("\nCurrent Address is %u",aptr);
+  printf("\n Current Value is %d",*aptr);
+
+  aptr++;
+ 
+  printf("\nCurrent Address is %u",aptr);
+  printf("\n Current Value is %d",*aptr);
+
+  aptr++;
+ 
+  printf("\nCurrent Address is %u",aptr);
+  printf("\n Current Value is %d",*aptr);
+}
+Example 4
+-------------
+#include<stdio.h>
+main()
+{
+   char name[]="CSC Perundurai",*aptr;
+  aptr=&name[0];
+ printf("%s",name);    
+  while(*aptr!='\0')
+   {
+      printf("\n%c address : %u",*aptr,aptr);
+      aptr++;
+   }
+}
+Pointer of Pointer (Double Pointer)
+Example 5
+----------------
+#include<stdio.h>
+main()
+{
+ int a=50,*aptr,**bptr;
+ aptr=&a;
+ bptr=&aptr;
+ printf("\nThe value of a is : %d",a);
+ printf("\nThe Address of a is : %u",aptr);
+ printf("\nThe Address of aptr is : %u",bptr);
+ 
+ printf("\nThe Value of a is Using aptr : %d",*aptr);
+printf("\nThe Value of a is Using aptr : %d",*bptr);
+ printf("\nThe Value of a is Using bptr : %d",**bptr);
+}
+
+Solve the Following
+===================
+1. Write a program to reverse a string using pointer
+2. Write a program to Sort the Integer number array using Pointer
+
+                                                                                                                                                                                                                                                                                                                                                                                   

@@ -1,0 +1,177 @@
+ Increment or Decrement Operator
+=========================
+  ++ increment Operator
+  -- decrement Operator
+pre Increment /decrement 
+  ++ Operand / -- Operand
+
+post Increment /decrement 
+  Operand ++ / Operand --
+
+Example1
+-----------
+#include<stdio.h>
+main()
+{
+   int n1=10,n2=10;
+ 
+   printf("\n n1 value is : %d",n1);
+   printf("\n n2 value is : %d",n2);
+   ++n1;
+   n2++;
+   printf("\n n1 value after Increment: %d",n1);
+   printf("\n n2 value after Increment: %d",n2);
+}
+
+Example2
+=======
+#include<stdio.h>
+main()
+{
+   int n1=10,n2=10,a,b;
+   a=n1++;
+   b=++n2;
+
+   printf("\n a value(Post Increment): %d",a);
+   printf("\n b value(Pre Increment): %d",b);
+}
+
+Example3
+========
+#include<stdio.h>
+main()
+{
+   int n1=10,n2=10;
+  
+   printf("\n n1 value(Post Increment): %d",n1++);
+   printf("\n n2 value(Pre Increment): %d",++n2);
+}
+
+undefined behavior :		
+a=5;
+printf("%d%d%d%d",++a,--a,a++,--a);	
+
+
+Conditional Operator
+-------------------------------
+?:  Used to make a desicion 
+
+(condition) ? Statement_If_true:Statement_If_false;
+
+Example1
+----------
+#include<stdio.h>
+main()
+{
+   int n1,n2,ans;
+   printf("\n Enter the value for n1:");
+   scanf("%d",&n1);
+
+   printf("\n Enter the value for n2:");
+   scanf("%d",&n2);
+
+   ans=(n1>n2)?n1:n2;
+   printf("\n The Biggest Value is: %d",ans);
+}
+
+Example2:
+--------------
+#include<stdio.h>
+main()
+{
+   int n1,n2;
+
+   printf("\n Enter the value for n1:");
+   scanf("%d",&n1);
+
+   printf("\n Enter the value for n2:");
+   scanf("%d",&n2);
+
+   (n1>n2)?printf("\n n1 is Biggest Value"):printf("\n n2 is Biggest Value");
+}
+Example 3 (Nested Conditional Operator)
+-------------------------------------------
+#include<stdio.h>
+main()
+{
+ int n1,n2,n3;
+ 
+ printf("\nEnter the value for n1 : ");
+ scanf("%d",&n1);
+ printf("\nEnter the value for n2 : ");
+ scanf("%d",&n2);
+ printf("\nEnter the value for n3 : ");
+ scanf("%d",&n3);
+ 
+ ((n1>n2)&&(n1>n3))?printf("Biggest Value is : %d",n1): ((n2>n3)?printf("Biggest Value is : %d",n2):printf("Biggest Value is : %d",n3));
+}
+
+Sizeof Operator
+============
+Example 1:
+===========
+#include<stdio.h>
+main()
+{
+  int a;
+  short b;
+  float c;
+  char d;
+  
+  printf("\nThe size of Short Integer is\t %d",sizeof(short));
+  printf("\nThe size of Integer is\t\t %d",sizeof(int));
+  printf("\nThe size of long Integer is\t %d",sizeof(long));
+  printf("\nThe size of Float is\t %d",sizeof(float));
+  printf("\nThe size of Long Float is\t %d",sizeof(double));
+  printf("\nThe size of Character is\t %d",sizeof(char));
+
+  printf("\nThe size of a is %d",sizeof(a));
+  printf("\nThe size of b is %d",sizeof(b));
+  printf("\nThe size of cis %d",sizeof(c));
+  printf("\nThe size of d is %d",sizeof(d));
+}
+
+Bitwise Operators
+==================
+|	Bitwise OR operator	Perform Logical OR between the bites
+&	Bitwise AND operator	Perform Logical OR between the bites
+~	Binary Ones complement 	Perfomr 1's complement of given number
+^	Bitwise XOR operator	Perform XOR Operation
+>>	Shift operator (Right)	It moves the value of the left operand to the right by the number of bits that the right operand specifies.
+<<	Shift operator (Left)	It moves the value of the right operand to the left by the number of bits that the right operand specifies.
+
+Example 1:
+===========
+#include<stdio.h>
+main()
+{
+ int n1=7,n2=9;
+ printf("\n Bitwise OR between 7 and 9is %d",(n1|n2));
+ printf("\n Bitwise AND between 7 and 9is %d",(n1&n2));
+ printf("\n Bitwise XOR between 7 and 9is %d",(n1^n2));
+ printf("\n Once Complement of n1 is %d",(~n1));
+ printf("\n Bitwise Left shift 7  is %d",(n1<<1));  
+ printf("\n Bitwise Right shift 7  is %d",(n1>>1));  
+ }
+
+Operators Classified with No.of Operands
+===================================
+Unary Operator
+Binary Operator
+Ternary Operator
+
+Try to Do It:
+  1. Write a program to get 5 subjects mark and print Total Marks, Average Mark, Result 
+       Note : Criteria Mark to Pass is 35
+ 2. Write program to Find Simple Interest (Formula SI=(P*N*R)/100
+         P - Principle Amount, N - Number of Years , R - Rate of Interest
+         Note : Upto 5 years Interest is 10%, more the 5 Years Interest is 12%
+ 3. Write a program to Find given number is Odd or Even
+ 4. Write a program to Check Elegiblity for Voting
+ 5. Write a program to find Smallest value among 3 Numbers
+ 6. Write a program to Convert Lower case to Upper Case
+ 7. Write a Program to Toggle case the Given Character
+ 8. Write a program to find second minimum number of given 3 numbers
+ 9. Write a program to convert Feet to Inch, Centi Meter ( 1 Feet = 12 Inch, 1 Feet = 30 CM)
+ 10. Write a program to check whether given char is vowel.
+11. Write a program to convert the Time from 24 Hrs Format to 12 Hrs Format

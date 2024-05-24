@@ -1,0 +1,144 @@
+An Introduction to Programming
+--------------------------------
+Understanding Of Programming
+=============================
+   What is software?
+   What is Programming?
+   The Role of Programming in Software Development.
+
+ System Software
+ Application Software 
+
+C Programming
+===============
+Step by step instructions or commands to a computer is called as a program. 
+The program is used to resolve the user needs in a computer. 
+The programming is used to build/ develop a software.
+
+Why we call programming as language?
+
+The Origin of C Programming
+----------------------------------
+AT & T Bell Lab USA TeleCommunication and Computer Research Center
+
+BCPL (Basic Combined Programming Language) Martin Richards
+B	--> Ken Thompson
+C	--> Dennis Ritchie in the year of 1972 @ AT &T Bell Lab ,USA
+ 
+Language
+=========
+Editor    --- > Used to Type and Edit the program(Source Code)
+                       Example : Notepad, Wordpad, DOS Editor, IDE and all word processors
+Library  -----> Has the machine code of each commands(Key Words) in Programming
+                        Example : Header Files, Java Packages, Name space
+Compiler / Interpreter3
+    1. Checks the source code and Find the Errors
+    2. Converts the Source code into machine code with the Support of Library
+Executer (Runner)
+
+ASCII (American Standard Code for Information Interchange)
+----------------------------------------------------------
+The full form of ASCII is the American Standard Code for information interchange. It is a character encoding scheme used for electronics communication. Each character or a special character is represented by some ASCII code, and each ascii code occupies 7 bits in memory.
+
+Enter : 13
+Escape : 27
+Space : 32
+Number 0 : 48
+Number 1 : 49
+
+Number 9: 57
+
+A : 65, B : 66,C:67 ------ Z : 90
+a :97,b :98, ---------------z:122 
+
+The Structure of C Programming
+=====================
+Preprocessor Directives
+----------------------------
+  The Preprocessor Directives are an instruction to the compiler about the program.
+ The compiler will work based on the Preprocessor Directives.
+ The Preprocessor Directives never to converted to the machine Language. Starts with # symbol.
+
+#Preprocessor Directives
+ main()
+ {
+
+  variable declarations/Codings
+ }
+
+The Frequently Used Header Files
+=========================
+  stdio.h		Standard Input/Output 
+ conio.h		Console Input/Output
+  math.h		Math Manipulation Functions	
+  string.h		String Manipulation Functions
+  file.h		File Manipulation Functions
+  graphics.h	Graphics Manipulation Functions
+  stdlib.h		standard library for Memory management
+C programming is a Case Sensitive language
+
+example:
+Print is different from print
+
+#include<stdio.h>
+#include<conio.h>
+
+ printf() ----> It is used to display a message/result on the output screen
+
+  Syntax:
+-------------
+ printf("Message or Result or output");  ---> Statement
+
+#include<stdio.h> ---> Preprocessor Directive
+main() ----> main function
+{
+  printf("Welcome to C Programming"); 
+//here Printf is a function
+}
+
+/*  */ Range Comment
+//     Single line Comment
+
+Escape Sequence
+--------------------
+The   Escape sequences are used in printf() function for a formated output. 
+The Escape Sequence should used between the " " in printf.
+
+Escape Sequence are
+-----------------------
+\n -----> New line
+\t ------> Print a Tab Space
+\a ------> Alert Sound(Beep Sound)
+\'  ------> to print single quote '
+\"   ------> to print double quote "
+\\    ------> to print slash \
+\? -----------> to print ? mark
+\r----------> Print from beginning (Over writes from starting of the line.
+\f---------> Form fees (New Page)
+\0 --------> Null Character (Will Discuss in Character array)
+
+Example Program1:
+===============
+#include<stdio.h>
+main()
+{
+  printf("CSC Computer Education");
+  printf("\nFirst Floor, Amman Complex");
+  printf("\nOpp. New Bus Stand");
+  printf("\nPerundurai. 638052");
+  printf("\nMobile : 7200001338,9965553027");
+}
+
+Try To Solve
+--------------
+1. Write program to Print your address.
+2. Write a program to print your Name inside a box
+3. Write a program to print a triangal using '*'
+4. Write a program to print 1 to 10 using single printf
+5. Write a program current week Date and Days in a Table Format 
+|----------------------------------------------------------------------	|     
+|	Date			Day	              	|	
+|----------------------------------------------------------------------	|
+|    01/05/2023		          Monday	       	|	
+|    02/05/2023		          Tuesday	       	|
+|--------------------------------------------------------------------__	|

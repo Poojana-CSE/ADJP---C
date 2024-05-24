@@ -1,0 +1,287 @@
+Number System
+==============
+Number System		Base Value		Range
+Binary			   2			0,1
+Octal			   8			0 to 7
+Decimal			  10			0 to 9
+Hexa Decimal		  16			0 to 9 and 10 as A, 11 as B, 12 as C,13 as D, 14 as E, 15 as F
+Coversions
+-----------
+Decimal to Binary and Binary to Decimal
+Decimal to Octal and Octal to Decimal
+Decimal to Hexadecimal and Hexa Decimal to Decimal
+
+Memory in Computer
+=================
+
+1 Bit 		= 	Binary Digit
+8 Bits 		= 	1 Byte 
+1024 Bytes 	= 	1 KB (Kilo Byte) 
+1024 KB 		= 	1 MB (Mega Byte) 
+1024 MB 		= 	1 GB (Giga Byte) 
+1024 GB 		=	1 TB (Terra Byte) 
+1024 TB 		=	1 PB (Peta Byte) 
+1024 PB 		=	1 EB (Exa Byte) 
+1024 EB 		= 	1 ZB (Zetta Byte) 
+1024 ZB 		=	1 YB (Yotta Byte) 
+1024 YB 		= 	1 (Bronto Byte) 
+1024 Brontobyte 	= 	1 (Geop Byte) 
+
+Variable
+======
+A variable is a temprory memory location used to store a value while executing a program. The memory location has measured by the unit named byte.
+
+Data Type:
+==========
+  The data type specifies the format of an information or value. Which classifies the values whether it is a Whole number or fraction number or a character value.
+
+
+There are three primary data types in C programming
+------------------------------------------------------------------------
+
+Data Type		Key Word		Value Type		
+------------------------------------------------------------------------
+
+Integer	--->Whole Numbers	10 or 123 or 2565
+The Memory Size for Data Types (Purly Compiler Based)
+-------------------------------------------------
+signed / unsigned
+	short 		====> 2 bytes
+	int		====> 4 bytes
+	long		====> 4 bytes
+	long long		====> 8 bytes
+Floating----> Fraction or  Decimal pointed Numbers								10.25 or 0.002 
+------------------------------------------------
+	float		====> 4 bytes
+	double		====> 8 bytes
+	long double	====> 16 bytes
+
+Character---->Alphabets & Symbols   'A' or 'd' or '#'
+------------------------------------------------
+	char		====> 1 byte	
+
+Variable Name
+------------------
+The name which is assigned for each memory location for the user reference is called as variable name. The variable name is user defined.
+
+ Rules for Naming a variable
+------------------------------------
+  1. The Variable Name should starts with an alphabet ( may lower case or Upper Case) or an Under score
+  2. Numbers can be used from 2nd character
+  3. Symbols or Special characters or blank space are not allowed in a variable Name      
+  4. keywords should not be a variable Name
+  5. The variable name should be unique and Case sensitive
+  6. The maximum length of a variable name is 31 characters
+
+ Variable Declaration ( Reserving Memory )
+---------------------------------------------------
+The variable declaration is a process to reserve a memory to store values.
+ Syntax:
+  datatype variableName;
+  datatype variablename=value;  -> initialization
+  datatype variablename1,variablename2,......;
+  Example:
+     int RegNo;
+     float Avrg;
+     char grade;
+     int mark1;
+     int Total_mark=400;
+     int m1,m2,m3,m4,m5,tot;
+     int m1=0,m2=0,m3=0,m4=0,m5=10,tot;
+     char initial='D'; 
+
+Find the valid variable Declarations
+=======================
+int abc=2013;
+int raja;
+float avrg_mark=2.0;
+char Grade;
+float num=12.0;
+Int student_num=100;
+float int=0.5;
+char Float;
+int n1,n2,n,m1,n2,n=0;        
+int n1,n2,N1,n3;
+int maths mark=100;
+float avrg-salary=1000.00;
+int 1stmark=100;
+int stu.mark=10.45;
+int Firstmark=99.7;
+intSalary;
+int _sno=10;
+int _=100;
+char gra,de;
+int __;
+int _ _;
+int _1_;
+
+printf("Escape Sequence/Message or Information/Format specifiers",variable1,variable2,..); 
+
+Format Specifiers or Control String
+====================================
+  Used to specify the type of the variable on output or input
+  %d 	-> Specify the integer value
+  %ld	-> Specify the long integer value
+  %u	-> Specify the unsigned integer value
+  %f	-> Specify the  float value
+  %lf	-> Specify the long float value
+  %o	-> Specify the Octal value
+  %X	-> Specify the Hexa Decimal value
+  %e	-> Specify the Scientific formated value
+  %c	-> Specify the long Character value
+  %s	-> Specify the long String value
+  %p	-> Specify an address (or pointer)
+
+Example1:
+#include<stdio.h>
+main()
+{
+  int n1;
+  int n2;
+
+  n1=150;
+  n2=200;
+  
+  printf("\nn1  %d",n1);
+  printf("\nThe value of n2 is : %d ", n2);  
+}
+
+Example2:
+#include<stdio.h>
+main()
+{
+  int n1;
+  float n2;
+  char ch;
+  n1 =600;
+  n2=200.369;
+  ch='d';
+  printf("\nThe value of n1 is :%d\nThe Value of n2 is : %f\nThe Value of ch is : %c",n1,n2,ch);
+  
+}
+Example3:
+ initialization:
+   If we assign a value for a variable while it declared is called as initialization.
+#include<stdio.h>
+main()
+{
+  int n1=150;
+  float n2=123.456;
+  char ch='D';
+  printf("\nThe value of n1 is :%d\nThe Value of n2 is : %f\nThe Value of ch is : %c",n1,n2,ch);
+  
+}
+
+Example4:
+----------------
+#include<stdio.h>
+main()
+{
+ int n1=109;
+  printf("\n The Actual value of N1 is:%d",n1);
+  printf("\n The N1 value As Float is:%f",(float)n1);
+  printf("\n The N1 value As Char is: %c",n1);
+  printf("\n The N1 value As Octal is: %o",n1);
+  printf("\n The N1 value As Hexa Decimal(lowercase) is: %x",n1);
+  printf("\n The N1 value As Hexa Decimal(Upper Case)  is: %X",n1);
+  printf("\n The N1 value in Scientific Notation(lowercase) is: %e",(float)n1);
+  printf("\n The N1 value in Scientific Notation(Upper Case)  is: %E",(float)n1);
+}
+Scanf 
+=====
+ The scanf() function is used to read the user input values at runtime.
+
+Syntax:
+  scanf("formatspecifiers",&VariableName1,&Variablename2,...);
+                                                                   
+Example:
+=======
+scanf("%d",&n2);
+or 
+scanf("%d %f",&n1,&n2);
+
+
+Example1:
+#include<stdio.h>
+main()
+{
+  int n1;
+  float n2;
+  printf("\nEnter the Value for n1");
+  scanf("%d",&n1);
+  printf("\nEnter the Value for n2");
+  scanf("%f",&n2);
+
+ printf("\nN1 Value is : %d ",n1);
+ printf("\nN2 Value is : %f ",n2);
+}
+
+Example2:
+#include<stdio.h>
+main()
+{
+  int n1,n2;
+   printf("\nEnter the Value for n1");
+   scanf("%d",&n1);
+   n2=n1; 
+  printf("\nN1 Value is : %d ",n1);
+  printf("\nN2 Value is : %d ",n2);
+}
+
+Example3:
+#include<stdio.h>
+main()
+{
+  int n1,n2,n3,n4,n5;
+   printf("\nEnter any 5 integer values");
+   scanf("%d%d%d%d%d",&n1,&n2,&n3,&n4,&n5);
+  printf("\nValues are : \n%d \n%d \n%d \n%d \n%d ",n1,n2,n3,n4,n5);
+}
+
+Example 4:
+-------------
+#include<stdio.h>
+main()
+{
+  int n1,n2,n3,n4,n5;
+  float f1=105.45678;
+   printf("\nEnter any 5 integer values");
+   scanf("%d%d%d%d%d",&n1,&n2,&n3,&n4,&n5);
+   
+   
+  printf("\nValues are : \nn1:%4d\nn2:%4d\nn3:%4d\nn4:%4d\nn5:%4d",n1,n2,n3,n4,n5);
+  printf("\nFloat value all Precision %f",f1);
+  printf("\nFloat value one Precision %.1f",f1);
+  printf("\nFloat value Two Precision %.2f",f1);
+  printf("\nFloat value Three Precision %.3f",f1);
+
+}
+Example 5:
+#include<stdio.h>
+main()
+{
+  int n1;
+  printf("\n Enter the Value for n1:");
+  scanf("%d",&n1);
+  printf("\n The Actual value of n1 is:%d",n1);
+  printf("\n The n1 value As Float is:%f",(float)n1);
+  printf("\n The n1 value As Char is: %c",n1);
+  printf("\n The n1 value As Octal is: %o",n1);
+  printf("\n The n1 value As Hexa Decimal(lowercase) is: %x",n1);
+  printf("\n The n1 value As Hexa Decimal(Upper Case)  is: %X",n1);
+  printf("\n The n1 value in Scientific Notation(lowercase) is: %e",(float)n1);
+  printf("\n The n1 value in Scientific Notation(Upper Case)  is: %E",(float)n1);
+}
+
+Try to Solve
+-------------
+1. Write a program to print an ASCII value for given Character
+2. Write a program to print character for given ASCII value
+3. Write a program to read 10 numbers and print all in 4 digit alignment 
+4. Write a program to read a decimal number and print it's Octal and hexa Decimal value
+5. Write a progaram to print a pyramid with given character
+  Ex:
+           *
+          * *
+         * * *
+        * * * *
